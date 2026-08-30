@@ -206,14 +206,19 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
 /* ================= page furniture ================= */
 .eyebrow{
   font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:5px;
+  color:var(--dayc, var(--gold)); margin-bottom:5px;
 }
 .page-title{font-size:25px; font-weight:600; line-height:1.16}
 .page-sub{font-size:14.5px; color:var(--ink-soft); margin-top:3px}
 .hr{height:1px; background:var(--line); margin:15px 0}
 .sec-lbl{
   font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
-  color:var(--gold); margin:18px 0 7px;
+  color:var(--dayc, var(--gold)); margin:18px 0 7px;
+  display:flex; align-items:center; gap:8px;
+}
+.sec-lbl::before{
+  content:""; width:16px; height:3px; border-radius:2px; flex:none;
+  background:var(--dayc, var(--gold));
 }
 
 /* dashboard */
@@ -301,6 +306,192 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
   object-fit:contain;
 }
 @media (min-height:900px){ .cover-art img{height:22vh; max-height:210px} }
+
+
+/* devi emblems */
+.devi-n{position:relative; width:38px; height:38px}
+.devi-em{width:21px; height:21px; color:#fff}
+.devi-num{
+  position:absolute; right:-3px; bottom:-3px; font-style:normal;
+  width:17px; height:17px; border-radius:50%; background:var(--paper);
+  color:var(--dc); border:1.5px solid var(--dc);
+  font-family:'Eczar',Georgia,serif; font-weight:700; font-size:10.5px;
+  display:flex; align-items:center; justify-content:center;
+}
+.dr-em{flex:none; width:24px; height:24px; color:var(--dc); display:flex; align-items:center}
+.dr-em svg{width:24px; height:24px}
+
+/* choose-your-programmes picker */
+.pick-lead{margin:4px 0 0; font-size:14px; color:var(--ink-soft)}
+.picker{margin-top:10px}
+.pick-day{margin-top:12px}
+.pick-h{
+  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent); padding-bottom:5px; border-bottom:1px solid var(--line);
+}
+.pick{
+  display:flex; align-items:center; gap:11px; padding:11px 4px;
+  border-bottom:1px solid var(--line); cursor:pointer; min-height:46px;
+}
+.pick input{width:20px; height:20px; flex:none; accent-color:var(--accent)}
+.pick .pk-n{flex:1; min-width:0; font-size:15.5px}
+.pick .pk-t{
+  flex:none; font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  background:var(--ok-bg); color:var(--ok); border-radius:999px; padding:2px 9px;
+}
+.pick.done{opacity:.62; cursor:default}
+
+/* register call to action on the cover */
+.cover-cta{
+  font:inherit; font-size:14px; font-weight:600; cursor:pointer; margin-top:14px;
+  background:rgba(246,223,169,.12); color:#F7E3B0;
+  border:1px solid rgba(216,178,94,.6); border-radius:999px;
+  padding:9px 22px; min-height:42px;
+}
+.cover-cta:hover{background:rgba(246,223,169,.22)}
+
+
+/* a band of the day's colour across the top of its page */
+.page .sheet[style*="--dayc"]{
+  background-image:linear-gradient(var(--dayc), var(--dayc));
+  background-repeat:no-repeat; background-size:100% 4px; background-position:0 0;
+}
+.page .sheet[style*="--dayc"] .page-title{color:var(--ink)}
+
+/* contents: a colourful card per day */
+.daycards{display:grid; gap:9px; margin-top:10px}
+.daycard{
+  display:flex; align-items:center; gap:12px; width:100%; text-align:left;
+  font:inherit; cursor:pointer; padding:11px 13px; border-radius:12px;
+  background:linear-gradient(100deg, var(--dayc)1F, var(--dayc)0A 65%, transparent);
+  border:1px solid var(--dayc)45; border-left:4px solid var(--dayc);
+  color:var(--ink); min-height:66px;
+}
+.daycard:hover{background:linear-gradient(100deg, var(--dayc)30, var(--dayc)12 65%, transparent)}
+.daycard.today{border-color:var(--dayc); box-shadow:0 0 0 2px var(--dayc)40}
+.dc-date{
+  flex:none; width:44px; text-align:center; color:var(--dayc);
+  font-family:'Eczar',Georgia,serif; line-height:1;
+}
+.dc-date b{display:block; font-size:23px; font-weight:700}
+.dc-date i{display:block; font-style:normal; font-size:10.5px; letter-spacing:.08em;
+           text-transform:uppercase; margin-top:2px; opacity:.85}
+.dc-main{flex:1; min-width:0}
+.dc-t{display:block; font-family:'Eczar',Georgia,serif; font-size:17px; font-weight:600; line-height:1.2}
+.dc-s{display:block; font-size:13px; color:var(--ink-soft); margin-top:1px}
+.dc-devi{
+  display:flex; align-items:center; gap:5px; margin-top:4px;
+  font-size:11.5px; font-weight:600; letter-spacing:.04em; color:var(--dayc);
+}
+.dc-devi svg{width:14px; height:14px}
+.dc-pg{flex:none; font-size:12px; color:var(--ink-soft); font-variant-numeric:tabular-nums}
+.dc-now{
+  flex:none; font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  background:var(--dayc); color:#fff; border-radius:999px; padding:3px 10px;
+}
+
+/* the dots at the foot become a colour index of the book */
+.pip{background:transparent; border-color:var(--pc, rgba(246,223,169,.42)); opacity:.55}
+.pip.here{background:var(--pc, var(--gold)); border-color:var(--pc, var(--gold)); opacity:1; transform:scale(1.45)}
+.pip:hover{opacity:.9}
+
+/* meters with a little more life */
+.bar.green > i{background:linear-gradient(90deg,#2C7A4C,#4FAE72)}
+.bar.gold > i{background:linear-gradient(90deg,#B8801A,#E0AA47)}
+.bar.red > i{background:linear-gradient(90deg,#A82B22,#D9603F)}
+
+/* the day's colour flows into its furniture */
+.sched caption{color:var(--dayc, var(--gold))}
+.acts .act:first-child{border-top-color:var(--dayc, var(--line))}
+.folio .fo-name{color:var(--dayc, var(--accent))}
+
+
+
+
+/* how many are coming */
+.counts{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px}
+.cnt{
+  display:flex; flex-direction:column; gap:5px;
+  background:var(--paper2); border:1px solid var(--line-strong);
+  border-radius:9px; padding:9px 12px;
+}
+.cnt span{font-size:11.5px; font-weight:700; letter-spacing:.07em;
+          text-transform:uppercase; color:var(--ink-soft)}
+
+
+.stepper{display:flex; align-items:center; gap:10px}
+.stp{
+  flex:none; width:40px; height:40px; border-radius:50%; cursor:pointer;
+  border:1px solid var(--line-strong); background:var(--paper);
+  color:var(--accent); font:inherit; font-size:20px; font-weight:700; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.stp:hover{border-color:var(--accent); background:var(--paper3)}
+.stp:active{transform:scale(.94)}
+.stp-v{
+  flex:1; text-align:center; font-family:'Eczar',Georgia,serif;
+  font-size:26px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums;
+}
+
+/* how someone is taking part */
+.rtag{
+  display:inline-block; margin-left:6px; padding:1px 8px; border-radius:999px;
+  font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  vertical-align:1px;
+}
+.rtag.perform{background:var(--need-bg); color:var(--need)}
+.rtag.attend{background:var(--warn-bg); color:var(--warn)}
+.rtag.help{background:var(--ok-bg); color:var(--ok)}
+.pnote{font-style:normal; font-size:12.5px; color:var(--ink-soft)}
+
+.pick-wrap{border-bottom:1px solid var(--line)}
+.pick-wrap .pick{border-bottom:none}
+.pick-wrap.done{opacity:.62}
+.pick-role{display:flex; gap:6px; padding:0 4px 11px 35px; flex-wrap:wrap}
+.pick-role[hidden]{display:none}
+@media (max-width:420px){ .pick-role{padding-left:12px} }
+.rbtn{
+  font:inherit; font-size:11.5px; font-weight:600; cursor:pointer;
+  border:1px solid var(--line-strong); background:var(--paper);
+  color:var(--ink-soft); border-radius:999px; padding:7px 12px; min-height:36px;
+}
+.rbtn.on{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
+.rbtn:hover{border-color:var(--accent)}
+
+/* the aarti, laid out to be sung from */
+.aarti{margin-top:14px}
+.verse{
+  padding:13px 15px; border-radius:10px; margin-top:10px;
+  background:var(--paper2); border-left:3px solid var(--gold);
+}
+.v-dev{margin:0; font-family:'Eczar',Georgia,serif; font-size:17.5px; font-weight:600;
+       line-height:1.95; color:var(--ink)}
+.v-tr{margin:6px 0 0; font-size:12.5px; font-style:italic; color:var(--ink-soft); line-height:1.5}
+.v-ref{
+  margin:9px 0 0; padding-top:8px; border-top:1px dashed var(--line-strong);
+  font-family:'Eczar',Georgia,serif; font-size:16px; font-weight:700;
+  color:var(--accent); text-align:center;
+}
+.aarti-cta{
+  font:inherit; font-size:13.5px; font-weight:600; cursor:pointer; margin-top:10px;
+  background:var(--accent); color:var(--accent-ink); border:none;
+  border-radius:9px; padding:10px 16px; min-height:42px; width:100%;
+}
+
+/* what each ritual means */
+.sched td .why{
+  display:block; font-style:normal; font-size:12.5px; line-height:1.45;
+  color:var(--ink-soft); margin-top:3px; padding-right:10px;
+}
+
+/* thank you page */
+.thanks{margin-top:14px}
+.thank{
+  padding:12px 14px; border-radius:10px; margin-top:9px;
+  background:var(--paper2); border-left:3px solid var(--gold);
+}
+.th-t{font-family:'Eczar',Georgia,serif; font-size:17px; font-weight:600; color:var(--ink)}
+.th-s{font-size:13.5px; color:var(--ink-soft); margin-top:2px}
 
 /* ---- venue + QR ---- */
 .venue{
@@ -445,6 +636,11 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
 .roster .rp{color:var(--ink-soft); font-variant-numeric:tabular-nums; font-size:13.5px; white-space:nowrap}
 .roster li.me .rn{font-weight:700; color:var(--accent)}
 .roster li.pend .rn em{color:var(--warn); background:var(--warn-bg)}
+.rcount{
+  display:inline-block; margin-left:6px; padding:1px 8px; border-radius:999px;
+  background:var(--paper3); color:var(--ink-soft);
+  font-size:11px; font-weight:700; vertical-align:1px;
+}
 .roster-note{font-size:12.5px; color:var(--ink-soft); margin:9px 0 0}
 .roster-note b{color:var(--ink)}
 /* organiser controls */
@@ -628,18 +824,33 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
 
   /* ---------- registration: name + phone only ---------- */
   var MEKEY = 'durgapuja2026-me';
-  var me = {name:'', phone:''};
+  var me = {name:'', phone:'', adults:1, children:0};
   try{
     var raw = JSON.parse(localStorage.getItem(MEKEY));
-    if(raw && raw.name) me = {name:raw.name || '', phone:raw.phone || ''};
+    if(raw && raw.name) me = {name:raw.name || '', phone:raw.phone || '',
+                              adults:+raw.adults || 1, children:+raw.children || 0};
   }catch(e){}
+  function partySize(){ return (+me.adults || 0) + (+me.children || 0); }
+  function partyText(){
+    var a = +me.adults || 0, c = +me.children || 0, t = a + c;
+    return t + ' coming' + (c ? ' (' + c + ' ' + (c === 1 ? 'child' : 'children') + ')' : '');
+  }
   function saveMe(){ try{ localStorage.setItem(MEKEY, JSON.stringify(me)); }catch(e){} }
   function registered(){ return !!(me.name && me.phone); }
   var editing = false;
   function showForm(){ return editing || !registered(); }
   function digits(s){ return String(s).replace(/[^0-9]/g,''); }
   function myLabel(detail){ return me.name + (detail ? ' - ' + detail : ''); }
-  var REG_PAGE = S.days.length + 4;   /* 1-based page number of the registration page */
+  /* the running order of the book, in one place */
+  var PAGES = (function(){
+    var a = ['cover','contents','devis','aarti'];
+    for (var i = 0; i < S.days.length; i++) a.push('day' + i);
+    a.push('register','suggest','thanks','blessing');
+    return a;
+  })();
+  function pageOf(kind){ return PAGES.indexOf(kind); }      /* 0-based */
+  function pageNo(kind){ return PAGES.indexOf(kind) + 1; }  /* as printed */
+  var REG_PAGE = pageNo('register');
 
   /* ---------- shared list (optional Google Sheet backend) ----------
      With no endpoint the book behaves exactly as before: everything stays on
@@ -814,7 +1025,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
   var VENUE = "Loung Loth Restaurant, Vientiane", MAPS = "https://maps.app.goo.gl/1ysWQFVGLGciexrTA?g_st=iw";
   var QR_SVG = "<svg class=\"qr\" viewBox=\"0 0 37 37\" role=\"img\" aria-label=\"Map to the venue\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"37\" height=\"37\" fill=\"#fff\"/><path fill=\"#1a1a1a\" d=\"M2 2h7v1h-7zM12 2h6v1h-6zM19 2h2v1h-2zM23 2h2v1h-2zM28 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM10 3h2v1h-2zM13 3h2v1h-2zM18 3h1v1h-1zM20 3h1v1h-1zM23 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM34 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM10 4h2v1h-2zM16 4h2v1h-2zM21 4h5v1h-5zM28 4h1v1h-1zM30 4h3v1h-3zM34 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM10 5h3v1h-3zM16 5h1v1h-1zM18 5h1v1h-1zM20 5h4v1h-4zM25 5h1v1h-1zM28 5h1v1h-1zM30 5h3v1h-3zM34 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM11 6h3v1h-3zM16 6h3v1h-3zM22 6h4v1h-4zM28 6h1v1h-1zM30 6h3v1h-3zM34 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM11 7h1v1h-1zM14 7h4v1h-4zM19 7h1v1h-1zM21 7h1v1h-1zM28 7h1v1h-1zM34 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h7v1h-7zM10 9h1v1h-1zM14 9h1v1h-1zM17 9h2v1h-2zM21 9h2v1h-2zM24 9h2v1h-2zM2 10h1v1h-1zM8 10h1v1h-1zM10 10h3v1h-3zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h2v1h-2zM21 10h1v1h-1zM24 10h5v1h-5zM31 10h3v1h-3zM9 11h7v1h-7zM19 11h4v1h-4zM25 11h2v1h-2zM30 11h3v1h-3zM34 11h1v1h-1zM2 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM8 12h4v1h-4zM13 12h1v1h-1zM15 12h5v1h-5zM22 12h3v1h-3zM30 12h1v1h-1zM32 12h2v1h-2zM2 13h2v1h-2zM9 13h3v1h-3zM13 13h3v1h-3zM17 13h6v1h-6zM25 13h2v1h-2zM28 13h5v1h-5zM3 14h1v1h-1zM5 14h1v1h-1zM8 14h2v1h-2zM14 14h2v1h-2zM17 14h1v1h-1zM19 14h1v1h-1zM24 14h2v1h-2zM28 14h1v1h-1zM4 15h1v1h-1zM7 15h1v1h-1zM10 15h3v1h-3zM14 15h1v1h-1zM19 15h2v1h-2zM24 15h1v1h-1zM27 15h1v1h-1zM29 15h1v1h-1zM31 15h4v1h-4zM2 16h1v1h-1zM4 16h2v1h-2zM8 16h1v1h-1zM10 16h3v1h-3zM14 16h1v1h-1zM17 16h2v1h-2zM22 16h2v1h-2zM27 16h3v1h-3zM31 16h1v1h-1zM33 16h1v1h-1zM2 17h3v1h-3zM6 17h1v1h-1zM9 17h5v1h-5zM18 17h1v1h-1zM20 17h1v1h-1zM22 17h1v1h-1zM24 17h2v1h-2zM27 17h1v1h-1zM31 17h2v1h-2zM34 17h1v1h-1zM2 18h2v1h-2zM5 18h1v1h-1zM7 18h2v1h-2zM13 18h1v1h-1zM15 18h6v1h-6zM24 18h1v1h-1zM27 18h1v1h-1zM29 18h2v1h-2zM34 18h1v1h-1zM2 19h1v1h-1zM7 19h1v1h-1zM9 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM20 19h6v1h-6zM28 19h1v1h-1zM31 19h2v1h-2zM4 20h2v1h-2zM7 20h4v1h-4zM14 20h1v1h-1zM16 20h2v1h-2zM19 20h3v1h-3zM23 20h1v1h-1zM25 20h2v1h-2zM28 20h2v1h-2zM31 20h2v1h-2zM34 20h1v1h-1zM4 21h1v1h-1zM9 21h2v1h-2zM13 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM21 21h2v1h-2zM24 21h1v1h-1zM26 21h1v1h-1zM30 21h5v1h-5zM2 22h9v1h-9zM13 22h2v1h-2zM17 22h1v1h-1zM20 22h2v1h-2zM24 22h1v1h-1zM26 22h2v1h-2zM30 22h2v1h-2zM33 22h1v1h-1zM2 23h3v1h-3zM6 23h1v1h-1zM13 23h1v1h-1zM15 23h2v1h-2zM19 23h1v1h-1zM24 23h2v1h-2zM28 23h3v1h-3zM32 23h1v1h-1zM2 24h1v1h-1zM4 24h1v1h-1zM8 24h2v1h-2zM15 24h2v1h-2zM19 24h1v1h-1zM21 24h1v1h-1zM23 24h1v1h-1zM27 24h2v1h-2zM31 24h1v1h-1zM33 24h1v1h-1zM2 25h1v1h-1zM4 25h3v1h-3zM9 25h4v1h-4zM15 25h4v1h-4zM21 25h2v1h-2zM25 25h1v1h-1zM27 25h1v1h-1zM29 25h1v1h-1zM31 25h3v1h-3zM2 26h2v1h-2zM7 26h2v1h-2zM12 26h1v1h-1zM14 26h1v1h-1zM16 26h1v1h-1zM20 26h1v1h-1zM22 26h1v1h-1zM24 26h1v1h-1zM26 26h6v1h-6zM33 26h2v1h-2zM10 27h1v1h-1zM12 27h1v1h-1zM16 27h4v1h-4zM21 27h3v1h-3zM25 27h2v1h-2zM30 27h1v1h-1zM32 27h1v1h-1zM2 28h7v1h-7zM14 28h6v1h-6zM22 28h2v1h-2zM25 28h2v1h-2zM28 28h1v1h-1zM30 28h1v1h-1zM32 28h2v1h-2zM2 29h1v1h-1zM8 29h1v1h-1zM12 29h2v1h-2zM15 29h1v1h-1zM18 29h4v1h-4zM25 29h2v1h-2zM30 29h3v1h-3zM2 30h1v1h-1zM4 30h3v1h-3zM8 30h1v1h-1zM11 30h2v1h-2zM18 30h1v1h-1zM24 30h1v1h-1zM26 30h6v1h-6zM33 30h1v1h-1zM2 31h1v1h-1zM4 31h3v1h-3zM8 31h1v1h-1zM11 31h1v1h-1zM13 31h2v1h-2zM20 31h1v1h-1zM23 31h5v1h-5zM29 31h2v1h-2zM33 31h2v1h-2zM2 32h1v1h-1zM4 32h3v1h-3zM8 32h1v1h-1zM11 32h1v1h-1zM13 32h2v1h-2zM17 32h1v1h-1zM19 32h3v1h-3zM25 32h3v1h-3zM29 32h2v1h-2zM32 32h3v1h-3zM2 33h1v1h-1zM8 33h1v1h-1zM13 33h4v1h-4zM21 33h2v1h-2zM25 33h1v1h-1zM29 33h4v1h-4zM2 34h7v1h-7zM10 34h1v1h-1zM15 34h5v1h-5zM24 34h1v1h-1zM26 34h2v1h-2zM29 34h1v1h-1zM33 34h1v1h-1z\"/></svg>";
   var SHLOKA = {"cover": {"dev": "&#2351;&#2366; &#2342;&#2375;&#2357;&#2368; &#2360;&#2352;&#2381;&#2357;&#2349;&#2370;&#2340;&#2375;&#2359;&#2369; &#2358;&#2325;&#2381;&#2340;&#2367;&#2352;&#2370;&#2346;&#2375;&#2339; &#2360;&#2306;&#2360;&#2381;&#2341;&#2367;&#2340;&#2366;&#2404;", "tr": "", "en": ""}, "contents": {"dev": "&#2360;&#2352;&#2381;&#2357;&#2350;&#2329;&#2381;&#2327;&#2354;&#2350;&#2366;&#2329;&#2381;&#2327;&#2354;&#2381;&#2351;&#2375; &#2358;&#2367;&#2357;&#2375; &#2360;&#2352;&#2381;&#2357;&#2366;&#2352;&#2381;&#2341;&#2360;&#2366;&#2343;&#2367;&#2325;&#2375;&#2404;\n&#2358;&#2352;&#2339;&#2381;&#2351;&#2375; &#2340;&#2381;&#2352;&#2381;&#2351;&#2350;&#2381;&#2348;&#2325;&#2375; &#2327;&#2380;&#2352;&#2367; &#2344;&#2366;&#2352;&#2366;&#2351;&#2339;&#2367; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Sarva-mangala-mangalye Shive sarvartha-sadhike | Sharanye tryambake Gauri Narayani namo'stu te ||", "en": "Auspiciousness of all that is auspicious, giver of every good end, refuge, three-eyed Gauri - Narayani, salutations to you."}, "blessing": {"dev": "&#2384; &#2360;&#2352;&#2381;&#2357;&#2375; &#2349;&#2357;&#2344;&#2381;&#2340;&#2369; &#2360;&#2369;&#2326;&#2367;&#2344;&#2307; &#2360;&#2352;&#2381;&#2357;&#2375; &#2360;&#2344;&#2381;&#2340;&#2369; &#2344;&#2367;&#2352;&#2366;&#2350;&#2351;&#2366;&#2307; &#2404;\n&#2360;&#2352;&#2381;&#2357;&#2375; &#2349;&#2342;&#2381;&#2352;&#2366;&#2339;&#2367; &#2346;&#2358;&#2381;&#2351;&#2344;&#2381;&#2340;&#2369; &#2350;&#2366; &#2325;&#2358;&#2381;&#2330;&#2367;&#2342;&#2381; &#2342;&#2369;&#2307;&#2326;&#2349;&#2366;&#2327;&#2381;&#2349;&#2357;&#2375;&#2340;&#2381; &#2404;\n&#2384; &#2358;&#2366;&#2344;&#2381;&#2340;&#2367;&#2307; &#2358;&#2366;&#2344;&#2381;&#2340;&#2367;&#2307; &#2358;&#2366;&#2344;&#2381;&#2340;&#2367;&#2307; &#2405;", "tr": "Om sarve bhavantu sukhinah sarve santu niramayah | Sarve bhadrani pashyantu ma kashchid duhkha-bhag bhavet | Om shantih shantih shantih ||", "en": "May all be happy, may all be free from illness, may all see what is good, may none come to sorrow. Om peace, peace, peace."}, "devis": {"dev": "&#2346;&#2381;&#2352;&#2341;&#2350;&#2306; &#2358;&#2376;&#2354;&#2346;&#2369;&#2340;&#2381;&#2352;&#2368; &#2330; &#2342;&#2381;&#2357;&#2367;&#2340;&#2368;&#2351;&#2306; &#2348;&#2381;&#2352;&#2361;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2339;&#2368;&#2404;\n&#2340;&#2371;&#2340;&#2368;&#2351;&#2306; &#2330;&#2344;&#2381;&#2342;&#2381;&#2352;&#2328;&#2339;&#2381;&#2335;&#2375;&#2340;&#2367; &#2325;&#2370;&#2359;&#2381;&#2350;&#2366;&#2339;&#2381;&#2337;&#2375;&#2340;&#2367; &#2330;&#2340;&#2369;&#2352;&#2381;&#2341;&#2325;&#2350;&#2381;&#2405;\n&#2346;&#2334;&#2381;&#2330;&#2350;&#2306; &#2360;&#2381;&#2325;&#2344;&#2381;&#2342;&#2350;&#2366;&#2340;&#2375;&#2340;&#2367; &#2359;&#2359;&#2381;&#2336;&#2306; &#2325;&#2366;&#2340;&#2381;&#2351;&#2366;&#2351;&#2344;&#2368;&#2340;&#2367; &#2330;&#2404;\n&#2360;&#2346;&#2381;&#2340;&#2350;&#2306; &#2325;&#2366;&#2354;&#2352;&#2366;&#2340;&#2381;&#2352;&#2368;&#2340;&#2367; &#2350;&#2361;&#2366;&#2327;&#2380;&#2352;&#2368;&#2340;&#2367; &#2330;&#2366;&#2359;&#2381;&#2335;&#2350;&#2350;&#2381;&#2405;\n&#2344;&#2357;&#2350;&#2306; &#2360;&#2367;&#2342;&#2381;&#2343;&#2367;&#2342;&#2366;&#2340;&#2381;&#2352;&#2368; &#2330; &#2344;&#2357;&#2342;&#2369;&#2352;&#2381;&#2327;&#2366;&#2307; &#2346;&#2381;&#2352;&#2325;&#2368;&#2352;&#2381;&#2340;&#2367;&#2340;&#2366;&#2307;&#2405;", "tr": "Prathamam Shailaputri cha dvitiyam Brahmacharini | Tritiyam Chandraghanteti Kushmandeti chaturthakam || Panchamam Skandamateti shashtham Katyayaniti cha | Saptamam Kalaratriti Mahagauriti chashtamam || Navamam Siddhidatri cha Navadurgah prakirtitah ||", "en": "First Shailaputri, second Brahmacharini, third Chandraghanta, fourth Kushmanda, fifth Skandamata, sixth Katyayani, seventh Kalaratri, eighth Mahagauri, and ninth Siddhidatri - these are declared the Nine Durgas."}};
-  var DAY_SHLOKA = {"fri": {"dev": "&#2384; &#2332;&#2351;&#2344;&#2381;&#2340;&#2368; &#2350;&#2329;&#2381;&#2327;&#2354;&#2366; &#2325;&#2366;&#2354;&#2368; &#2349;&#2342;&#2381;&#2352;&#2325;&#2366;&#2354;&#2368; &#2325;&#2346;&#2366;&#2354;&#2367;&#2344;&#2368;&#2404;\n&#2342;&#2369;&#2352;&#2381;&#2327;&#2366; &#2325;&#2381;&#2359;&#2350;&#2366; &#2358;&#2367;&#2357;&#2366; &#2343;&#2366;&#2340;&#2381;&#2352;&#2368; &#2360;&#2381;&#2357;&#2366;&#2361;&#2366; &#2360;&#2381;&#2357;&#2343;&#2366; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Om Jayanti Mangala Kali Bhadrakali Kapalini | Durga Kshama Shiva Dhatri Svaha Svadha namo'stu te ||", "en": "Victorious one, auspicious one, Kali, Bhadrakali, Kapalini; Durga, forbearance, Shiva, sustainer - salutations to you."}, "sat": {"dev": "&#2360;&#2371;&#2359;&#2381;&#2335;&#2367;&#2360;&#2381;&#2341;&#2367;&#2340;&#2367;&#2357;&#2367;&#2344;&#2366;&#2358;&#2366;&#2344;&#2366;&#2306; &#2358;&#2325;&#2381;&#2340;&#2367;&#2349;&#2370;&#2340;&#2375; &#2360;&#2344;&#2366;&#2340;&#2344;&#2367;&#2404;\n&#2327;&#2369;&#2339;&#2366;&#2358;&#2381;&#2352;&#2351;&#2375; &#2327;&#2369;&#2339;&#2350;&#2351;&#2375; &#2344;&#2366;&#2352;&#2366;&#2351;&#2339;&#2367; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Srishti-sthiti-vinashanam shakti-bhute sanatani | Gunashraye gunamaye Narayani namo'stu te ||", "en": "Power behind creation, preservation and dissolution, eternal one, refuge and embodiment of all qualities - Narayani, salutations to you."}, "sun": {"dev": "&#2358;&#2352;&#2339;&#2366;&#2327;&#2340;&#2342;&#2368;&#2344;&#2366;&#2352;&#2381;&#2340;&#2346;&#2352;&#2367;&#2340;&#2381;&#2352;&#2366;&#2339;&#2346;&#2352;&#2366;&#2351;&#2339;&#2375;&#2404;\n&#2360;&#2352;&#2381;&#2357;&#2360;&#2381;&#2351;&#2366;&#2352;&#2381;&#2340;&#2367;&#2361;&#2352;&#2375; &#2342;&#2375;&#2357;&#2367; &#2344;&#2366;&#2352;&#2366;&#2351;&#2339;&#2367; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Sharanagata-dinarta-paritrana-parayane | Sarvasyarti-hare Devi Narayani namo'stu te ||", "en": "Devoted to saving the humble and the distressed who take refuge in you, remover of everyone's suffering - Narayani, salutations to you."}, "mon": {"dev": "&#2360;&#2352;&#2381;&#2357;&#2360;&#2381;&#2357;&#2352;&#2370;&#2346;&#2375; &#2360;&#2352;&#2381;&#2357;&#2375;&#2358;&#2375; &#2360;&#2352;&#2381;&#2357;&#2358;&#2325;&#2381;&#2340;&#2367;&#2360;&#2350;&#2344;&#2381;&#2357;&#2367;&#2340;&#2375;&#2404;\n&#2349;&#2351;&#2375;&#2349;&#2381;&#2351;&#2360;&#2381;&#2340;&#2381;&#2352;&#2366;&#2361;&#2367; &#2344;&#2379; &#2342;&#2375;&#2357;&#2367; &#2342;&#2369;&#2352;&#2381;&#2327;&#2375; &#2342;&#2375;&#2357;&#2367; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Sarva-svarupe sarveshe sarva-shakti-samanvite | Bhayebhyas trahi no Devi Durge Devi namo'stu te ||", "en": "Form of all, ruler of all, endowed with every power - protect us from all fears, O Devi Durga, salutations to you."}, "tue": {"dev": "&#2342;&#2375;&#2361;&#2367; &#2360;&#2380;&#2349;&#2366;&#2327;&#2381;&#2351;&#2350;&#2366;&#2352;&#2379;&#2327;&#2381;&#2351;&#2306; &#2342;&#2375;&#2361;&#2367; &#2350;&#2375; &#2346;&#2352;&#2350;&#2306; &#2360;&#2369;&#2326;&#2350;&#2381;&#2404;\n&#2352;&#2370;&#2346;&#2306; &#2342;&#2375;&#2361;&#2367; &#2332;&#2351;&#2306; &#2342;&#2375;&#2361;&#2367; &#2351;&#2358;&#2379; &#2342;&#2375;&#2361;&#2367; &#2342;&#2381;&#2357;&#2367;&#2359;&#2379; &#2332;&#2361;&#2367;&#2405;", "tr": "Dehi saubhagyam arogyam dehi me paramam sukham | Rupam dehi jayam dehi yasho dehi dvisho jahi ||", "en": "Grant good fortune and health, grant the highest happiness; grant grace, grant victory, grant renown, and vanquish all enmity."}, "wed": {"dev": "&#2327;&#2330;&#2381;&#2331; &#2327;&#2330;&#2381;&#2331; &#2346;&#2352;&#2306; &#2360;&#2381;&#2341;&#2366;&#2344;&#2306; &#2360;&#2381;&#2357;&#2360;&#2381;&#2341;&#2366;&#2344;&#2306; &#2346;&#2352;&#2350;&#2375;&#2358;&#2381;&#2357;&#2352;&#2367;&#2404;\n&#2346;&#2370;&#2332;&#2366;&#2352;&#2366;&#2343;&#2344;&#2325;&#2366;&#2354;&#2375; &#2340;&#2369; &#2346;&#2369;&#2344;&#2352;&#2366;&#2327;&#2350;&#2344;&#2366;&#2351; &#2330;&#2405;", "tr": "Gaccha gaccha param sthanam svasthanam Parameshvari | Puja-aradhana-kale tu punar-agamanaya cha ||", "en": "Go now to your own supreme abode, O Parameshvari - and return again at the time of worship."}};
+  var DAY_SHLOKA = {"fri": {"dev": "&#2360;&#2352;&#2381;&#2357;&#2348;&#2366;&#2343;&#2366;&#2357;&#2367;&#2344;&#2367;&#2352;&#2381;&#2350;&#2369;&#2325;&#2381;&#2340;&#2379; &#2343;&#2344;&#2343;&#2366;&#2344;&#2381;&#2351;&#2360;&#2369;&#2340;&#2366;&#2344;&#2381;&#2357;&#2367;&#2340;&#2307;&#2404;\n&#2350;&#2344;&#2369;&#2359;&#2381;&#2351;&#2379; &#2350;&#2340;&#2381;&#2346;&#2381;&#2352;&#2360;&#2366;&#2342;&#2375;&#2344; &#2349;&#2357;&#2367;&#2359;&#2381;&#2351;&#2340;&#2367; &#2344; &#2360;&#2306;&#2358;&#2351;&#2307;&#2405;", "tr": "Sarva-badha-vinirmukto dhana-dhanya-sutanvitah | Manushyo mat-prasadena bhavishyati na samshayah ||", "en": "Freed from every obstacle, blessed with plenty and with family - so shall a person become by my grace, without doubt."}, "sat": {"dev": "&#2360;&#2371;&#2359;&#2381;&#2335;&#2367;&#2360;&#2381;&#2341;&#2367;&#2340;&#2367;&#2357;&#2367;&#2344;&#2366;&#2358;&#2366;&#2344;&#2366;&#2306; &#2358;&#2325;&#2381;&#2340;&#2367;&#2349;&#2370;&#2340;&#2375; &#2360;&#2344;&#2366;&#2340;&#2344;&#2367;&#2404;\n&#2327;&#2369;&#2339;&#2366;&#2358;&#2381;&#2352;&#2351;&#2375; &#2327;&#2369;&#2339;&#2350;&#2351;&#2375; &#2344;&#2366;&#2352;&#2366;&#2351;&#2339;&#2367; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Srishti-sthiti-vinashanam shakti-bhute sanatani | Gunashraye gunamaye Narayani namo'stu te ||", "en": "Power behind creation, preservation and dissolution, eternal one, refuge and embodiment of all qualities - Narayani, salutations to you."}, "sun": {"dev": "&#2358;&#2352;&#2339;&#2366;&#2327;&#2340;&#2342;&#2368;&#2344;&#2366;&#2352;&#2381;&#2340;&#2346;&#2352;&#2367;&#2340;&#2381;&#2352;&#2366;&#2339;&#2346;&#2352;&#2366;&#2351;&#2339;&#2375;&#2404;\n&#2360;&#2352;&#2381;&#2357;&#2360;&#2381;&#2351;&#2366;&#2352;&#2381;&#2340;&#2367;&#2361;&#2352;&#2375; &#2342;&#2375;&#2357;&#2367; &#2344;&#2366;&#2352;&#2366;&#2351;&#2339;&#2367; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;", "tr": "Sharanagata-dinarta-paritrana-parayane | Sarvasyarti-hare Devi Narayani namo'stu te ||", "en": "Devoted to saving the humble and the distressed who take refuge in you, remover of everyone's suffering - Narayani, salutations to you."}, "mon": {"dev": "&#2384; &#2332;&#2351;&#2344;&#2381;&#2340;&#2368; &#2350;&#2329;&#2381;&#2327;&#2354;&#2366; &#2325;&#2366;&#2354;&#2368; &#2349;&#2342;&#2381;&#2352;&#2325;&#2366;&#2354;&#2368; &#2325;&#2346;&#2366;&#2354;&#2367;&#2344;&#2368;&#2404;\n&#2342;&#2369;&#2352;&#2381;&#2327;&#2366; &#2325;&#2381;&#2359;&#2350;&#2366; &#2358;&#2367;&#2357;&#2366; &#2343;&#2366;&#2340;&#2381;&#2352;&#2368; &#2360;&#2381;&#2357;&#2366;&#2361;&#2366; &#2360;&#2381;&#2357;&#2343;&#2366; &#2344;&#2350;&#2379;&#2365;&#2360;&#2381;&#2340;&#2369; &#2340;&#2375;&#2405;\n&#2319;&#2359; &#2360;&#2330;&#2344;&#2381;&#2342;&#2344; &#2346;&#2369;&#2359;&#2381;&#2346;&#2348;&#2367;&#2354;&#2381;&#2357;&#2346;&#2340;&#2381;&#2352;&#2366;&#2334;&#2381;&#2332;&#2354;&#2367;&#2307; &#2384; &#2361;&#2381;&#2352;&#2368;&#2306; &#2342;&#2369;&#2352;&#2381;&#2327;&#2366;&#2351;&#2376; &#2344;&#2350;&#2307;&#2405;", "tr": "Om Jayanti Mangala Kali Bhadrakali Kapalini | Durga Kshama Shiva Dhatri Svaha Svadha namo'stu te | Esha sachandana pushpa-bilvapatra-anjalih Om Hreem Durgayai namah ||", "en": "The Pushpanjali, offered with flowers in cupped hands: this handful of flowers and bel leaves with sandal is offered to you, O Durga."}, "tue": {"dev": "&#2342;&#2375;&#2361;&#2367; &#2360;&#2380;&#2349;&#2366;&#2327;&#2381;&#2351;&#2350;&#2366;&#2352;&#2379;&#2327;&#2381;&#2351;&#2306; &#2342;&#2375;&#2361;&#2367; &#2350;&#2375; &#2346;&#2352;&#2350;&#2306; &#2360;&#2369;&#2326;&#2350;&#2381;&#2404;\n&#2352;&#2370;&#2346;&#2306; &#2342;&#2375;&#2361;&#2367; &#2332;&#2351;&#2306; &#2342;&#2375;&#2361;&#2367; &#2351;&#2358;&#2379; &#2342;&#2375;&#2361;&#2367; &#2342;&#2381;&#2357;&#2367;&#2359;&#2379; &#2332;&#2361;&#2367;&#2405;", "tr": "Dehi saubhagyam arogyam dehi me paramam sukham | Rupam dehi jayam dehi yasho dehi dvisho jahi ||", "en": "Grant good fortune and health, grant the highest happiness; grant grace, grant victory, grant renown, and vanquish all enmity."}, "wed": {"dev": "&#2327;&#2330;&#2381;&#2331; &#2327;&#2330;&#2381;&#2331; &#2346;&#2352;&#2306; &#2360;&#2381;&#2341;&#2366;&#2344;&#2306; &#2360;&#2381;&#2357;&#2360;&#2381;&#2341;&#2366;&#2344;&#2306; &#2346;&#2352;&#2350;&#2375;&#2358;&#2381;&#2357;&#2352;&#2367;&#2404;\n&#2346;&#2370;&#2332;&#2366;&#2352;&#2366;&#2343;&#2344;&#2325;&#2366;&#2354;&#2375; &#2340;&#2369; &#2346;&#2369;&#2344;&#2352;&#2366;&#2327;&#2350;&#2344;&#2366;&#2351; &#2330;&#2405;", "tr": "Gaccha gaccha param sthanam svasthanam Parameshvari | Puja-aradhana-kale tu punar-agamanaya cha ||", "en": "Go now to your own supreme abode, O Parameshvari - and return again at the time of worship."}};
 
   /* Original devotional motif: Maa Durga with mukut, halo and lotus. */
   var DURGA = (function(){
@@ -918,6 +1129,8 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       + '<p class="cover-venue">' + esc(VENUE) + '</p>'
       + shloka('cover', true)
       + '<p class="open-hint">' + esc(line) + ' &middot; swipe to open</p>'
+      + '<button class="cover-cta" type="button" data-go="' + REG_PAGE + '">'
+        + (registered() ? 'My entries' : 'Register to take part') + '</button>'
       + '</div></div>'
       + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Cover</span></div>';
   }
@@ -925,22 +1138,25 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
   function contentsPage(now){
     var t = totals(), idx = todayIndex(now);
     var rows = S.days.map(function(d, i){
-      return '<li class="' + (i===idx ? 'today' : '') + '">'
-        + '<button type="button" data-go="' + (i+4) + '">'
-        + '<span class="d">' + esc(d.weekday.slice(0,3)) + ' ' + d.dnum + '</span>'
-        + '<span class="t">' + esc(d.title)
-        + (d.subtitle ? '<em>' + esc(d.subtitle) + '</em>' : '')
-        + (i===idx ? '<em>Today</em>' : '') + '</span>'
-        + '<span class="pg">' + (i+4) + '</span></button></li>';
+      var v = (S.devis || []).filter(function(x){ return x.n === d.devi; })[0];
+      return '<button class="daycard' + (i===idx ? ' today' : '') + '" type="button" '
+        + 'style="--dayc:' + dayColour(d.id) + '" data-go="' + pageNo('day'+i) + '">'
+        + '<span class="dc-date"><b>' + d.dnum + '</b><i>' + esc(d.weekday.slice(0,3)) + '</i></span>'
+        + '<span class="dc-main"><span class="dc-t">' + esc(d.title) + '</span>'
+        + (d.subtitle ? '<span class="dc-s">' + esc(d.subtitle) + '</span>' : '')
+        + (v ? '<span class="dc-devi">' + deviEmblem(v.n) + esc(v.name) + '</span>' : '')
+        + '</span>'
+        + (i===idx ? '<span class="dc-now">Today</span>' : '<span class="dc-pg">' + pageNo('day'+i) + '</span>')
+        + '</button>';
     }).join('');
     var extra = '<li><button type="button" data-go="' + REG_PAGE + '">'
       + '<span class="d">Join</span><span class="t">' + (registered() ? 'My entries' : 'Register')
       + '<em>' + (registered() ? 'Send your entries to the organisers' : 'Name and phone number only')
       + '</em></span>'
       + '<span class="pg">' + REG_PAGE + '</span></button></li>'
-      + '<li><button type="button" data-go="' + (S.days.length+5) + '">'
+      + '<li><button type="button" data-go="' + pageNo('suggest') + '">'
       + '<span class="d">Ideas</span><span class="t">Suggestion box<em>Share an idea for any programme</em></span>'
-      + '<span class="pg">' + (S.days.length+5) + '</span></button></li>';
+      + '<span class="pg">' + pageNo('suggest') + '</span></button></li>';
 
     return '<div class="sheet">'
       + '<div class="eyebrow">The programme at a glance</div>'
@@ -964,16 +1180,23 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
           : '<div class="regnote"><span>Register with your <b>name and phone number</b> to join any programme.</span>'
             + '<button type="button" data-go="' + REG_PAGE + '">Register</button></div>')
       + '<div class="sec-lbl">Turn to</div>'
-      + '<ul class="toc"><li><button type="button" data-go="3">'
+      + '<div class="daycards">' + rows + '</div>'
+      + '<ul class="toc"><li><button type="button" data-go="' + pageNo('devis') + '">'
         + '<span class="d">Devis</span><span class="t">The nine Devis<em>One form of Maa Durga for each night</em></span>'
-        + '<span class="pg">3</span></button></li>' + rows + extra + '</ul>'
+        + '<span class="pg">' + pageNo('devis') + '</span></button></li>'
+        + '<li><button type="button" data-go="' + pageNo('aarti') + '">'
+        + '<span class="d">Aarti</span><span class="t">Jai Ambe Gauri<em>Sung together at 6:30 each evening</em></span>'
+        + '<span class="pg">' + pageNo('aarti') + '</span></button></li>'
+        + '<li><button type="button" data-go="' + pageNo('thanks') + '">'
+        + '<span class="d">Thanks</span><span class="t">With gratitude<em>The hands that made this puja</em></span>'
+        + '<span class="pg">' + pageNo('thanks') + '</span></button></li>' + extra + '</ul>'
       + '<div class="sec-lbl">How to join</div>'
       + '<ol class="steps"><li>Open any day and type your name under a programme.</li>'
       + '<li>Tap <b>Add me</b> - it is saved on this phone at once.</li>'
       + '<li>Go to <b>My entries</b> and send them all to the organisers on WhatsApp.</li></ol>'
       + '<div class="install" id="install"><img id="install-ico" alt=""><div class="t" id="install-txt"></div></div>'
       + '</div>'
-      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page 2</span></div>';
+      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page ' + pageNo('contents') + '</span></div>';
   }
 
 
@@ -983,15 +1206,100 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
     var v = (S.devis || []).filter(function(x){ return x.n === d.devi; })[0];
     if(!v) return '';
     return '<div class="devi-ribbon" style="--dc:' + v.c + '">'
+      + '<span class="dr-em">' + deviEmblem(v.n) + '</span>'
       + '<span class="dr-n">Night ' + v.n + '</span>'
       + '<span class="dr-name">' + esc(v.name) + '</span>'
       + '<span class="dr-ep">' + esc(v.epithet) + '</span></div>';
   }
 
+
+  var AARTI = [["&#2332;&#2351; &#2309;&#2350;&#2381;&#2348;&#2375; &#2327;&#2380;&#2352;&#2368;, &#2350;&#2376;&#2351;&#2366; &#2332;&#2351; &#2358;&#2381;&#2351;&#2366;&#2350;&#2366; &#2327;&#2380;&#2352;&#2368;&#2404;", "Jai Ambe Gauri, maiya jai Shyama Gauri"], ["&#2340;&#2369;&#2350;&#2325;&#2379; &#2344;&#2367;&#2358;&#2367;&#2342;&#2367;&#2344; &#2343;&#2381;&#2351;&#2366;&#2357;&#2340;, &#2361;&#2352;&#2367; &#2348;&#2381;&#2352;&#2361;&#2381;&#2350;&#2366; &#2358;&#2367;&#2357;&#2352;&#2368;&#2405;", "Tumko nishidin dhyavat, Hari Brahma Shivari"], ["&#2350;&#2366;&#2306;&#2327; &#2360;&#2367;&#2344;&#2381;&#2342;&#2370;&#2352; &#2357;&#2367;&#2352;&#2366;&#2332;&#2340;, &#2335;&#2368;&#2325;&#2379; &#2350;&#2371;&#2327;&#2350;&#2342; &#2325;&#2379;&#2404;", "Mang sindoor virajat, tiko mrigamad ko"], ["&#2313;&#2332;&#2381;&#2332;&#2381;&#2357;&#2354; &#2360;&#2375; &#2342;&#2379;&#2313; &#2344;&#2376;&#2344;&#2366;, &#2330;&#2344;&#2381;&#2342;&#2381;&#2352;&#2357;&#2342;&#2344; &#2344;&#2368;&#2325;&#2379;&#2405;", "Ujjwal se dou naina, chandravadan niko"], ["&#2325;&#2344;&#2325; &#2360;&#2350;&#2366;&#2344; &#2325;&#2354;&#2375;&#2357;&#2352;, &#2352;&#2325;&#2381;&#2340;&#2366;&#2350;&#2381;&#2348;&#2352; &#2352;&#2366;&#2332;&#2376;&#2404;", "Kanak samaan kalevar, raktambar rajai"], ["&#2352;&#2325;&#2381;&#2340;&#2346;&#2369;&#2359;&#2381;&#2346; &#2327;&#2354;&#2350;&#2366;&#2354;&#2366;, &#2325;&#2339;&#2381;&#2336;&#2344; &#2346;&#2352; &#2360;&#2366;&#2332;&#2376;&#2405;", "Raktapushp galmala, kanthan par sajai"], ["&#2325;&#2375;&#2361;&#2352;&#2367; &#2357;&#2366;&#2361;&#2344; &#2352;&#2366;&#2332;&#2340;, &#2326;&#2337;&#2381;&#2327; &#2326;&#2346;&#2381;&#2346;&#2352; &#2343;&#2366;&#2352;&#2368;&#2404;", "Kehari vahan rajat, khadga khappar dhari"], ["&#2360;&#2369;&#2352;-&#2344;&#2352;-&#2350;&#2369;&#2344;&#2367;&#2332;&#2344; &#2360;&#2375;&#2357;&#2340;, &#2340;&#2367;&#2344;&#2325;&#2375; &#2342;&#2369;&#2326;&#2361;&#2366;&#2352;&#2368;&#2405;", "Sur-nar-munijan sevat, tinke dukhhari"], ["&#2325;&#2366;&#2344;&#2344; &#2325;&#2369;&#2339;&#2381;&#2337;&#2354; &#2358;&#2379;&#2349;&#2367;&#2340;, &#2344;&#2366;&#2360;&#2366;&#2327;&#2381;&#2352;&#2375; &#2350;&#2379;&#2340;&#2368;&#2404;", "Kanan kundal shobhit, nasagre moti"], ["&#2325;&#2379;&#2335;&#2367;&#2325; &#2330;&#2344;&#2381;&#2342;&#2381;&#2352; &#2342;&#2367;&#2357;&#2366;&#2325;&#2352;, &#2352;&#2366;&#2332;&#2340; &#2360;&#2350; &#2332;&#2381;&#2351;&#2379;&#2340;&#2368;&#2405;", "Kotik chandra divakar, rajat sam jyoti"], ["&#2358;&#2369;&#2350;&#2381;&#2349;-&#2344;&#2367;&#2358;&#2369;&#2350;&#2381;&#2349; &#2348;&#2367;&#2342;&#2366;&#2352;&#2375;, &#2350;&#2361;&#2367;&#2359;&#2366;&#2360;&#2369;&#2352; &#2328;&#2366;&#2340;&#2368;&#2404;", "Shumbh-Nishumbh bidare, Mahishasur ghati"], ["&#2343;&#2370;&#2350;&#2381;&#2352;&#2357;&#2367;&#2354;&#2379;&#2330;&#2344; &#2344;&#2376;&#2344;&#2366;, &#2344;&#2367;&#2358;&#2367;&#2342;&#2367;&#2344; &#2350;&#2342;&#2350;&#2366;&#2340;&#2368;&#2405;", "Dhumravilochan naina, nishidin madmati"], ["&#2330;&#2339;&#2381;&#2337;-&#2350;&#2369;&#2339;&#2381;&#2337; &#2360;&#2306;&#2361;&#2366;&#2352;&#2375;, &#2358;&#2379;&#2339;&#2367;&#2340;&#2348;&#2368;&#2332; &#2361;&#2352;&#2375;&#2404;", "Chand-Mund samhare, Shonitbeej hare"], ["&#2350;&#2343;&#2369;-&#2325;&#2376;&#2335;&#2349; &#2342;&#2379;&#2313; &#2350;&#2366;&#2352;&#2375;, &#2360;&#2369;&#2352; &#2349;&#2351;&#2361;&#2368;&#2344; &#2325;&#2352;&#2375;&#2405;", "Madhu-Kaitabh dou mare, sur bhayhin kare"], ["&#2348;&#2381;&#2352;&#2361;&#2381;&#2350;&#2366;&#2339;&#2368; &#2352;&#2369;&#2342;&#2381;&#2352;&#2366;&#2339;&#2368;, &#2340;&#2369;&#2350; &#2325;&#2350;&#2354;&#2366; &#2352;&#2366;&#2344;&#2368;&#2404;", "Brahmani Rudrani, tum Kamala Rani"], ["&#2310;&#2327;&#2350;-&#2344;&#2367;&#2327;&#2350;-&#2348;&#2326;&#2366;&#2344;&#2368;, &#2340;&#2369;&#2350; &#2358;&#2367;&#2357; &#2346;&#2335;&#2352;&#2366;&#2344;&#2368;&#2405;", "Agam-nigam-bakhani, tum Shiv Patrani"], ["&#2330;&#2380;&#2306;&#2360;&#2336; &#2351;&#2379;&#2327;&#2367;&#2344;&#2367; &#2327;&#2366;&#2357;&#2340;, &#2344;&#2371;&#2340;&#2381;&#2351; &#2325;&#2352;&#2340; &#2349;&#2376;&#2352;&#2379;&#2306;&#2404;", "Chaunsath yogini gavat, nritya karat Bhairon"], ["&#2348;&#2366;&#2332;&#2340; &#2340;&#2366;&#2354; &#2350;&#2371;&#2342;&#2306;&#2327;&#2366;, &#2309;&#2352;&#2369; &#2348;&#2366;&#2332;&#2340; &#2337;&#2350;&#2352;&#2370;&#2405;", "Bajat taal mridanga, aru bajat damaru"], ["&#2340;&#2369;&#2350; &#2361;&#2368; &#2332;&#2327; &#2325;&#2368; &#2350;&#2366;&#2340;&#2366;, &#2340;&#2369;&#2350; &#2361;&#2368; &#2361;&#2379; &#2349;&#2352;&#2340;&#2366;&#2404;", "Tum hi jag ki mata, tum hi ho bharta"], ["&#2349;&#2325;&#2381;&#2340;&#2344; &#2325;&#2368; &#2342;&#2369;&#2326; &#2361;&#2352;&#2340;&#2366;, &#2360;&#2369;&#2326; &#2360;&#2350;&#2381;&#2346;&#2340;&#2381;&#2340;&#2367; &#2325;&#2352;&#2340;&#2366;&#2405;", "Bhaktan ki dukh harta, sukh sampatti karta"], ["&#2349;&#2369;&#2332;&#2366; &#2330;&#2366;&#2352; &#2309;&#2340;&#2367; &#2358;&#2379;&#2349;&#2367;&#2340;, &#2357;&#2352; &#2350;&#2369;&#2342;&#2381;&#2352;&#2366; &#2343;&#2366;&#2352;&#2368;&#2404;", "Bhuja chaar ati shobhit, var mudra dhari"], ["&#2350;&#2344;&#2357;&#2366;&#2306;&#2331;&#2367;&#2340; &#2347;&#2354; &#2346;&#2366;&#2357;&#2340;, &#2360;&#2375;&#2357;&#2340; &#2344;&#2352; &#2344;&#2366;&#2352;&#2368;&#2405;", "Manvanchhit phal pavat, sevat nar nari"], ["&#2325;&#2306;&#2330;&#2344; &#2341;&#2366;&#2354; &#2357;&#2367;&#2352;&#2366;&#2332;&#2340;, &#2309;&#2327;&#2352; &#2325;&#2346;&#2370;&#2352; &#2348;&#2366;&#2340;&#2368;&#2404;", "Kanchan thaal virajat, agar kapoor bati"], ["&#2358;&#2381;&#2352;&#2368; &#2350;&#2366;&#2354;&#2325;&#2375;&#2340;&#2369; &#2350;&#2375;&#2306; &#2352;&#2366;&#2332;&#2340;, &#2325;&#2379;&#2335;&#2367; &#2352;&#2340;&#2344; &#2332;&#2381;&#2351;&#2379;&#2340;&#2368;&#2405;", "Shri Malketu mein rajat, koti ratan jyoti"], ["&#2358;&#2381;&#2352;&#2368; &#2309;&#2350;&#2381;&#2348;&#2375;&#2332;&#2368; &#2325;&#2368; &#2310;&#2352;&#2340;&#2368;, &#2332;&#2379; &#2325;&#2379;&#2312; &#2344;&#2352; &#2327;&#2366;&#2357;&#2376;&#2404;", "Shri Ambeji ki aarti, jo koi nar gavai"], ["&#2325;&#2361;&#2340; &#2358;&#2367;&#2357;&#2366;&#2344;&#2344;&#2381;&#2342; &#2360;&#2381;&#2357;&#2366;&#2350;&#2368;, &#2360;&#2369;&#2326;-&#2360;&#2350;&#2381;&#2346;&#2340;&#2381;&#2340;&#2367; &#2346;&#2366;&#2357;&#2376;&#2405;", "Kahat Shivanand Swami, sukh-sampatti pavai"]];
+  var AARTI_REFRAIN = ["&#2384; &#2332;&#2351; &#2309;&#2350;&#2381;&#2348;&#2375; &#2327;&#2380;&#2352;&#2368;&#2405;", "Om Jai Ambe Gauri"];
+  var RITUAL = {"Bilwa Nimantran": "The Goddess is invited at the bel tree on the eve of Shashthi, and asked to take her place among us.", "Kalparambha": "The vow that opens the puja - the resolve to see all six days through with devotion.", "Ghatasthapana": "The sacred pot is filled with water and installed; the Goddess is understood to dwell in it.", "Kalparambha & Ghatasthapana": "The opening vow, and the sacred pot filled with water in which the Goddess is understood to dwell.", "Shashthi Puja": "On the sixth day the Devi's face is unveiled and she is formally welcomed into the mandap.", "Invitation & Adhibas Ceremony": "The idol is sanctified and settled in her place, ready for the days of worship to come.", "Evening Aarti": "The lamp is circled before the Devi while the aarti is sung together - the heart of each evening.", "Nabapatrika / Kolabou Bath & Entry": "Nine plants bound together are bathed at first light and brought in - the Goddess present in the green world.", "Maha Saptami Puja": "The seventh day, when full worship of the Devi begins in earnest.", "Maha Ashtami Puja, Pushpanjali & Kumari Puja": "Flowers are offered in cupped hands, and a young girl is worshipped as the living Goddess.", "Sandhi Puja": "The forty-eight minutes joining Ashtami to Navami, when Chamunda rose to slay Chanda and Munda - the most charged moment of the puja.", "Sandhikshan": "The exact instant the eighth day turns into the ninth.", "Navami Homa / Yagya & Purnahuti": "The fire offering, ending with purnahuti - the final oblation that completes it.", "Maha Navami Puja & Bali": "The ninth day, when the Devi is worshipped in her fullest form.", "Dashami Puja & Darpan Visarjan": "Her reflection in a mirror is immersed first, a gentle first parting before she leaves.", "Sindoor Khela & Devi Boron": "Married women offer vermilion to the Devi and to one another, bidding her farewell with sweetness.", "Idol Immersion / Visarjan": "She returns to the waters, to come again next year."};
+
+  /* each Devi's own emblem: her attribute, drawn rather than photographed */
+  var DEVI_EMBLEM = {
+    1: '<path d="M12 22V7M7 10V4M17 10V4M12 7V2M6.5 10q5.5 4 11 0"/>',
+    2: '<circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="5.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="18.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="5.5" cy="12" r="1.5" fill="currentColor" stroke="none"/>',
+    3: '<path d="M8 17h8q-1.2-1.6-1.2-3.4V10a2.8 2.8 0 0 0-5.6 0v3.6Q8 15.4 8 17z"/><path d="M12 17v2.5"/><path d="M14.5 5.5A3.6 3.6 0 1 1 10 3.2a4.4 4.4 0 0 0 4.5 2.3z"/>',
+    4: '<circle cx="12" cy="12" r="4.6"/><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7"/>',
+    5: '<path d="M12 20q-6-3-6-8 4 0 6 4 2-4 6-4 0 5-6 8z"/><path d="M12 20V12"/>',
+    6: '<path d="M12 3l1.8 1.8-6.4 6.4-1.8-1.8z" fill="currentColor" stroke="none"/><path d="M5.6 9.4L3 20l10.6-2.6"/><path d="M12 3l1.8 1.8"/>',
+    7: '<path d="M12 3q4.5 4.6 4.5 8.6a4.5 4.5 0 0 1-9 0Q7.5 7.6 12 3z"/><path d="M12 11.5q1.8 2 1.8 3.4a1.8 1.8 0 0 1-3.6 0q0-1.4 1.8-3.4z" fill="currentColor" stroke="none"/>',
+    8: '<path d="M15.5 3.5a8.5 8.5 0 1 0 0 17 9.6 9.6 0 0 1 0-17z"/>',
+    9: '<circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><path d="M12 4.5v3M12 16.5v3M4.5 12h3M16.5 12h3M6.7 6.7l2.1 2.1M15.2 15.2l2.1 2.1M17.3 6.7l-2.1 2.1M8.8 15.2l-2.1 2.1"/>'
+  };
+
+
+  /* each day carries its own colour so the book reads at a glance */
+  var DAY_COLOUR = {fri:'#C026D3', sat:'#CA8A04', sun:'#4338CA',
+                    mon:'#0F766E', tue:'#BE185D', wed:'#A82B22'};
+  function dayColour(id){ return DAY_COLOUR[id] || '#A82B22'; }
+  function pageColour(i){
+    var k = PAGES[i];
+    if(k && k.indexOf('day') === 0) return dayColour(S.days[parseInt(k.slice(3),10)].id);
+    if(k === 'devis' || k === 'aarti') return '#B8801A';
+    return '#A82B22';
+  }
+
+  function deviEmblem(n){
+    var d = DEVI_EMBLEM[n] || '';
+    return '<svg class="devi-em" viewBox="0 0 24 24" aria-hidden="true" fill="none" '
+      + 'stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'
+      + d + '</svg>';
+  }
+
+
+  function aartiPage(){
+    var verses = '';
+    for (var i = 0; i < AARTI.length; i += 2) {
+      verses += '<div class="verse">'
+        + '<p class="v-dev">' + AARTI[i][0] + '<br>' + (AARTI[i+1] ? AARTI[i+1][0] : '') + '</p>'
+        + '<p class="v-tr">' + esc(AARTI[i][1]) + ' | ' + esc(AARTI[i+1] ? AARTI[i+1][1] : '') + '</p>'
+        + '<p class="v-ref">' + AARTI_REFRAIN[0] + '</p></div>';
+    }
+    return '<div class="sheet" style="--dayc:#B8801A">'
+      + '<div class="eyebrow">Sung together at 6:30 every evening</div>'
+      + '<h2 class="page-title">Jai Ambe Gauri</h2>'
+      + '<p class="page-sub">The aarti of Maa Ambe. Everyone is welcome to join in - the refrain '
+      + 'comes back after every couplet, so you can sing it even if you are learning the rest.</p>'
+      + '<div class="aarti">' + verses + '</div>'
+      + '<p class="note">Please have an elder check this against the words your family sings. '
+      + 'Tell the organisers and we will correct it.</p>'
+      + '</div>'
+      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span>'
+      + '<span>Page ' + pageNo('aarti') + '</span></div>';
+  }
+
+  function thanksPage(){
+    var groups = [
+      ['The Ladies&rsquo; Group', 'who imagined this programme and carried it'],
+      ['The organising committee', 'for the arrangements behind every evening'],
+      ['Our volunteers', 'who set up, serve, clear away and are thanked too seldom'],
+      ['Every family taking part', 'the performers, the singers, the children, and everyone who came'],
+      ['Loung Loth Restaurant', 'for being our home for these six days']
+    ];
+    var body = groups.map(function(g){
+      return '<div class="thank"><div class="th-t">' + g[0] + '</div>'
+        + '<div class="th-s">' + g[1] + '</div></div>';
+    }).join('');
+    return '<div class="sheet">'
+      + '<div class="eyebrow">With gratitude</div>'
+      + '<h2 class="page-title">Thank you</h2>'
+      + '<p class="page-sub">A puja is made by many hands, most of them unseen.</p>'
+      + '<div class="thanks">' + body + '</div>'
+      + '<p class="note">Names can be added here - send them to the organisers and they will '
+      + 'appear in the next update of this book.</p>'
+      + '</div>'
+      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span>'
+      + '<span>Page ' + pageNo('thanks') + '</span></div>';
+  }
+
   function devisPage(){
     var cards = (S.devis || []).map(function(v){
       return '<article class="devi" style="--dc:' + v.c + '">'
-        + '<div class="devi-top"><span class="devi-n">' + v.n + '</span>'
+        + '<div class="devi-top"><span class="devi-n">' + deviEmblem(v.n)
+        + '<i class="devi-num">' + v.n + '</i></span>'
         + '<div class="devi-id"><h3>' + esc(v.name) + '</h3>'
         + '<p class="devi-ep">' + esc(v.epithet) + '</p></div></div>'
         + '<p class="devi-when">' + esc(v.date) + ' &middot; ' + esc(v.tithi) + '</p>'
@@ -1007,14 +1315,17 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       + '<p class="note">The first four nights are kept at home before the mandap opens on '
       + '16 October. From Panchami onwards we gather together each evening.</p>'
       + '</div>'
-      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page 3</span></div>';
+      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page ' + pageNo('devis') + '</span></div>';
   }
 
   function dayPage(d, di, now){
     var idx = todayIndex(now);
     var badge = di===idx ? ' | Today' : (idx>-1 && di<idx ? ' | Completed' : '');
     var sched = d.puja.map(function(r){
-      return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td></tr>';
+      var why = RITUAL[r[0]];
+      return '<tr><td>' + esc(r[0])
+        + (why ? '<em class="why">' + esc(why) + '</em>' : '')
+        + '</td><td>' + esc(r[1]) + '</td></tr>';
     }).join('');
     var meals = (d.meals || []).map(function(r){
       return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td></tr>';
@@ -1036,8 +1347,10 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
         })
         .concat(shared.map(function(j){
           var isMe = registered() && j.name === me.name;
+          var sp = splitRole(j.detail);
           return '<li' + (isMe ? ' class="mine"' : '') + '>'
-            + esc(j.name + (j.detail ? ' - ' + j.detail : ''))
+            + esc(j.name) + roleTag(sp.role)
+            + (sp.note ? ' <em class="pnote">' + esc(sp.note) + '</em>' : '')
             + (isMe ? ' &middot; you' : '')
             + orgTools(j.name, 'join', d.id + '|' + a.id + '|' + j.name) + '</li>';
         }))
@@ -1047,17 +1360,14 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
             return j.name === me.name && (j.detail || '') === (e.detail || '');
           });
         }).map(function(e){
-          return '<li class="' + (e.sent?'mine':'pending') + '">' + esc(myLabel(e.detail))
+          var sp = splitRole(e.detail);
+          return '<li class="' + (e.sent?'mine':'pending') + '">' + esc(me.name) + roleTag(sp.role)
+            + (sp.note ? ' <em class="pnote">' + esc(sp.note) + '</em>' : '')
             + ' &middot; ' + (e.sent?'you, sent':'you, not sent') + '</li>';
         }));
       if(!chips.length) chips = ['<li class="empty">No one yet &mdash; be the first to join</li>'];
 
-      var joinRow = registered()
-        ? '<div class="join"><input type="text" maxlength="120" placeholder="' + esc(a.placeholder) + ' (optional)" '
-          + 'data-day="' + d.id + '" data-act="' + a.id + '" aria-label="' + esc(a.label) + '">'
-          + '<button class="btn" type="button" data-add data-day="' + d.id + '" data-act="' + a.id + '">Join</button></div>'
-        : '<div class="join"><button class="btn wide" type="button" data-go="' + REG_PAGE + '">'
-          + 'Register with your name and phone to join</button></div>';
+      var joinRow = '';
 
       return '<li class="act" id="act-' + a.id + '">'
         + '<div class="act-top"><div class="act-main">'
@@ -1075,7 +1385,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
         + joinRow + '</div></li>';
     }).join('');
 
-    return '<div class="sheet">'
+    return '<div class="sheet" style="--dayc:' + dayColour(d.id) + '">'
       + '<div class="eyebrow">' + esc(d.weekday) + ' &middot; ' + esc(d.date) + esc(badge) + '</div>'
       + '<h2 class="page-title">' + esc(d.title) + '</h2>'
       + (d.subtitle ? '<p class="page-sub">' + esc(d.subtitle) + '</p>' : '')
@@ -1087,17 +1397,21 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       + '<table class="sched meals">' + meals + '</table>'
       + '<div class="sec-lbl">Evening programmes</div>'
       + '<ul class="acts">' + acts + '</ul>'
+      + '<div class="stack"><button class="btn wide" type="button" data-go="' + REG_PAGE + '">'
+        + (registered() ? 'Choose programmes to join' : 'Register to join a programme') + '</button></div>'
       + (d.note ? '<p class="note">' + esc(d.note) + '</p>' : '')
       + (d.album ? '<a class="album-link" href="' + esc(d.album) + '" target="_blank" rel="noopener">View photos from this day</a>' : '')
       + '</div>'
       + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span>'
-      + '<span>Page ' + (di+4) + '</span></div>';
+      + '<span>Page ' + pageNo('day'+di) + '</span></div>';
   }
 
   function entriesPage(){
     var rows = mine.map(function(e,i){
       return '<li><div class="b"><div class="w">' + esc(e.actName) + ' &middot; ' + esc(e.dayLabel) + '</div>'
-        + '<div class="x-t">' + esc(e.detail || me.name || 'Joining') + '</div></div>'
+        + '<div class="x-t">' + esc(me.name) + roleTag(splitRole(e.detail).role)
+        + (splitRole(e.detail).note ? ' <em class="pnote">' + esc(splitRole(e.detail).note) + '</em>' : '')
+        + '</div></div>'
         + '<span class="state ' + (e.sent?'sent':'pending') + '">' + (e.sent?'Sent':'Not sent') + '</span>'
         + '<button class="rm" type="button" data-del="' + i + '" aria-label="Remove entry">&times;</button></li>';
     }).join('');
@@ -1105,12 +1419,18 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
 
     var regBlock = !showForm()
       ? '<div class="regcard"><div class="rc-i"><div class="rc-n">' + esc(me.name) + '</div>'
-        + '<div class="rc-p">' + esc(me.phone) + '</div></div>'
+        + '<div class="rc-p">' + esc(me.phone) + ' &middot; ' + esc(partyText()) + '</div></div>'
         + '<button class="btn ghost" type="button" id="reg-edit">Edit</button></div>'
       : '<div class="field">'
         + '<input id="reg-name" type="text" maxlength="60" autocomplete="name" placeholder="Your full name" value="' + esc(me.name) + '">'
         + '<input id="reg-phone" type="tel" inputmode="tel" maxlength="24" autocomplete="tel" placeholder="Your phone number (with country code)" value="' + esc(me.phone) + '">'
-        + '</div><div class="stack"><button class="btn wide" type="button" id="reg-save">Save my registration</button></div>';
+        + '</div>'
+        + '<div class="sec-lbl">How many are coming from your family</div>'
+        + '<p class="pick-lead">This is what the organisers use to plan the meals, so please '
+        + 'include everyone - children too.</p>'
+        + '<div class="counts">' + stepper('adults', 'Adults', +me.adults || 1, 1)
+        + stepper('children', 'Children', +me.children || 0, 0) + '</div>'
+        + '<div class="stack"><button class="btn wide" type="button" id="reg-save">Save my registration</button></div>';
 
     return '<div class="sheet">'
       + '<div class="eyebrow">Your participation</div>'
@@ -1128,8 +1448,9 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
                 + '<a class="btn wa wide" id="send-all" href="' + esc(waLink(msg)) + '">Send to organisers on WhatsApp</a>'
                 + '<button class="btn ghost wide" type="button" id="copy-all">Copy text instead</button></div>'
                 + '<div class="preview" id="preview">' + esc(msg) + '</div>'
-              : '<p class="empty-note">You have not joined a programme yet. Turn to any day and tap <b>Join</b> under a programme.</p>')
+              : '<p class="empty-note">You have not joined a programme yet. Choose from the list below.</p>')
           : '')
+      + chooserBlock()
       + rosterBlock()
       + orgPanel()
       + '</div>'
@@ -1149,6 +1470,88 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
   }
 
   /* Everyone who has registered, as recorded by the organisers. */
+
+
+  /* how someone is taking part - kept inside the detail field, so the
+     Google Sheet needs no change at all */
+  var ROLES = ['Performing', 'Joining as viewer', 'Helping in arrangements'];
+  /* older wordings, so anything already saved still reads correctly */
+  var ROLES_OLD = {'Taking part': 'Joining as viewer', 'Helping': 'Helping in arrangements'};
+  function defaultRole(a){ return a.kind === 'prep' ? ROLES[2] : ROLES[0]; }
+  function splitRole(detail){
+    var d = String(detail || ''), all = ROLES.concat(Object.keys(ROLES_OLD));
+    for (var i = 0; i < all.length; i++) {
+      if (d.indexOf(all[i]) === 0) {
+        return {role: ROLES_OLD[all[i]] || all[i],
+                note: d.slice(all[i].length).replace(/^\s*[-:]\s*/, '')};
+      }
+    }
+    return {role: '', note: d};
+  }
+  function roleTag(role){
+    if(!role) return '';
+    var cls = role === ROLES[0] ? 'perform' : (role === ROLES[2] ? 'help' : 'attend');
+    return '<span class="rtag ' + cls + '">' + esc(role) + '</span>';
+  }
+
+
+  /* a tap-only counter - no keyboard needed */
+  function stepper(id, label, value, min){
+    return '<div class="cnt"><span>' + esc(label) + '</span>'
+      + '<div class="stepper">'
+      + '<button type="button" class="stp" data-step="-1" data-for="' + id + '" '
+      + 'aria-label="one fewer ' + esc(label) + '">&minus;</button>'
+      + '<output class="stp-v" id="reg-' + id + '" data-min="' + min + '" data-v="' + value + '">'
+      + value + '</output>'
+      + '<button type="button" class="stp" data-step="1" data-for="' + id + '" '
+      + 'aria-label="one more ' + esc(label) + '">+</button>'
+      + '</div></div>';
+  }
+  function stepValue(id){
+    var el = document.getElementById('reg-' + id);
+    return el ? (parseInt(el.getAttribute('data-v'), 10) || 0) : 0;
+  }
+
+  /* pick as many programmes as you like, in one go */
+  function chooserBlock(){
+    if(!registered() || showForm()) return '';
+    var any = false;
+    var body = S.days.map(function(d){
+      var rows = d.activities.map(function(a){
+        var joined = myFor(d.id, a.id).length > 0 ||
+          joinsFor(d.id, a.id).some(function(j){ return j.name === me.name; });
+        if(!joined) any = true;
+        var def = defaultRole(a);
+        var roles = ROLES.map(function(r){
+          return '<button type="button" class="rbtn' + (r === def ? ' on' : '') + '" '
+            + 'data-role="' + r + '">' + r + '</button>';
+        }).join('');
+        return '<div class="pick-wrap' + (joined ? ' done' : '') + '" '
+          + 'data-day="' + d.id + '" data-act="' + a.id + '">'
+          + '<label class="pick">'
+          + '<input type="checkbox" data-day="' + d.id + '" data-act="' + a.id + '"'
+          + (joined ? ' checked disabled' : '') + '>'
+          + '<span class="pk-n">' + esc(a.name) + '</span>'
+          + (joined ? '<span class="pk-t">joined</span>' : '') + '</label>'
+          + (joined ? '' : '<div class="pick-role" hidden>' + roles + '</div>')
+          + '</div>';
+      }).join('');
+      return '<div class="pick-day"><div class="pick-h">' + esc(d.weekday) + ' '
+        + d.dnum + ' October</div>' + rows + '</div>';
+    }).join('');
+
+    return '<div class="sec-lbl">Choose the programmes you would like to join</div>'
+      + '<p class="pick-lead">Tick as many as you like. For each one, say whether you are <b>performing</b>, <b>joining as viewer</b>, or <b>helping in arrangements</b>. Then save them all at once.</p>'
+      + '<div class="picker">' + body + '</div>'
+      + (any
+          ? '<div class="field"><input id="pick-note" type="text" maxlength="120" '
+            + 'placeholder="Optional note - bhajan name, child&#39;s age, and so on"></div>'
+            + '<div class="stack"><button class="btn wide" type="button" id="pick-save">Save my choices</button></div>'
+            + '<p class="sg-note" id="pick-msg">These go straight to the organisers.</p>'
+          : '<p class="empty-note">You have joined every programme. To step back from one, '
+            + 'ask an organiser to remove it.</p>');
+  }
+
   function rosterBlock(){
     var isLive = liveState === 'ok';
     var list = (isLive ? live.registrations : (S.registrations || [])).slice();
@@ -1162,6 +1565,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
     var rows = list.map(function(r){
       var isMe = registered() && sameAsMe(r);
       return '<li' + (isMe ? ' class="me"' : '') + '><span class="rn">' + esc(r.name)
+        + (r.total ? '<span class="rcount">' + r.total + '</span>' : '')
         + (isMe ? ' <em>you</em>' : '') + '</span>'
         + (isMe ? '<span class="rp">' + esc(me.phone) + '</span>' : '')
         + orgTools(r.name, 'reg', r.name) + '</li>';
@@ -1208,7 +1612,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       + '<button class="btn ghost wide" type="button" id="sg-copy">Copy text instead</button></div>'
       + '<p class="sg-note" id="sg-note">Submitting sends it straight to the organisers.</p>'
       + '</div>'
-      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page ' + (S.days.length+5) + '</span></div>';
+      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page ' + pageNo('suggest') + '</span></div>';
   }
 
   function blessingPage(){
@@ -1224,14 +1628,17 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       + '<div class="rule"></div>'
       + shloka('blessing')
       + '<p class="om">Shri Shri Durga Sahay</p>'
+      + '<div class="stack"><button class="btn wide" type="button" data-go="' + REG_PAGE + '">'
+        + (registered() ? 'My entries' : 'Register to take part') + '</button></div>'
       + '</div></div>'
-      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page ' + (S.days.length+6) + '</span></div>';
+      + '<div class="folio"><span class="fo-name">Sharadiya Durga Puja 2026 (LAOS)</span><span>Page ' + pageNo('blessing') + '</span></div>';
   }
 
   function entryMessage(list){
     var lines = ['Durga Puja 2026 - registration',
                  'Name: ' + me.name,
                  'Phone: ' + me.phone,
+                 'Coming: ' + partyText(),
                  'Joining:'];
     list.forEach(function(e){
       lines.push('- ' + e.actName + ' (' + e.dayLabel + ')' + (e.detail ? ': ' + e.detail : ''));
@@ -1241,16 +1648,20 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
 
   /* ================= book engine ================= */
   var book = document.getElementById('book');
-  var current = 0, pageCount = S.days.length + 6, busy = false;
+  var current = 0, pageCount = PAGES.length, busy = false;
 
   function buildPage(i, now){
-    if(i === 0) return {cls:'page cover', html:coverPage(now)};
-    if(i === 1) return {cls:'page', html:contentsPage(now)};
-    if(i === 2) return {cls:'page', html:devisPage()};
-    if(i >= 3 && i < 3 + S.days.length) return {cls:'page', html:dayPage(S.days[i-3], i-3, now)};
-    if(i === 3 + S.days.length) return {cls:'page', html:entriesPage()};
-    if(i === 4 + S.days.length) return {cls:'page', html:suggestPage()};
-    return {cls:'page', html:blessingPage()};
+    var k = PAGES[i];
+    if(k === 'cover')     return {cls:'page cover', html:coverPage(now)};
+    if(k === 'contents')  return {cls:'page', html:contentsPage(now)};
+    if(k === 'devis')     return {cls:'page', html:devisPage()};
+    if(k === 'aarti')     return {cls:'page', html:aartiPage()};
+    if(k === 'register')  return {cls:'page', html:entriesPage()};
+    if(k === 'suggest')   return {cls:'page', html:suggestPage()};
+    if(k === 'thanks')    return {cls:'page', html:thanksPage()};
+    if(k === 'blessing')  return {cls:'page', html:blessingPage()};
+    var di = parseInt(k.slice(3), 10);
+    return {cls:'page', html:dayPage(S.days[di], di, now)};
   }
 
   function renderPage(i){
@@ -1307,8 +1718,8 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
     document.getElementById('prev').disabled = current === 0;
     document.getElementById('next').disabled = current === pageCount - 1;
     if(current === 1){ refreshMeters(); refreshNow(); installHint(); }
-    if(current === 3 + S.days.length) wireEntries();
-    if(current === 4 + S.days.length) wireSuggest();
+    if(PAGES[current] === 'register') wireEntries();
+    if(PAGES[current] === 'suggest') wireSuggest();
     var pg = activePage();
     var sh = pg && pg.querySelector('.sheet');
     if(sh) sh.scrollTop = 0;
@@ -1319,7 +1730,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
     var html = '';
     for(var i=0;i<pageCount;i++){
       html += '<button class="pip' + (i===current?' here':'') + '" type="button" data-pip="' + i
-            + '" aria-label="Page ' + (i+1) + '"></button>';
+            + '" style="--pc:' + pageColour(i) + '" aria-label="Page ' + (i+1) + '"></button>';
     }
     box.innerHTML = html;
   }
@@ -1395,6 +1806,8 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       + (live ? '<p class="now-sub"><b>Happening now:</b> ' + esc(live) + '</p>'
               : (nxt ? '<p class="now-sub"><b>Up next:</b> ' + esc(nxt) + '</p>' : ''))
       + '<ul class="now-list">' + rows + '</ul>'
+      + '<button class="aarti-cta" type="button" data-go="' + pageNo('aarti') + '">'
+        + (mins >= 360 && mins <= 420 ? 'Aarti now - open the words' : 'Open the aarti') + '</button>'
       + (d.album ? '<a class="album-link" href="' + esc(d.album) + '" target="_blank" rel="noopener">Today&#39;s photos</a>' : '')
       + '<p class="clock">Updates itself &middot; ' + timeStr(now) + '</p>';
   }
@@ -1415,7 +1828,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       mine.forEach(function(e){ e.sent = true; });
       saveMine();
       setTimeout(function(){
-        if(current === 2 + S.days.length) mount(current);
+        if(PAGES[current] === 'register') mount(current);
         var pv = document.getElementById('preview'); if(pv) pv.classList.add('show');
       }, 500);
     });
@@ -1533,15 +1946,99 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       return;
     }
 
+    var stp = ev.target.closest('.stp');
+    if(stp){
+      var out = document.getElementById('reg-' + stp.getAttribute('data-for'));
+      if(out){
+        var min = parseInt(out.getAttribute('data-min'), 10) || 0;
+        var v = (parseInt(out.getAttribute('data-v'), 10) || 0) + (+stp.getAttribute('data-step'));
+        v = Math.max(min, Math.min(30, v));
+        out.setAttribute('data-v', v);
+        out.textContent = v;
+      }
+      return;
+    }
+
+    var pkBox = ev.target.closest('.picker input[type=checkbox]');
+    if(pkBox && !pkBox.disabled){
+      var wrap = pkBox.closest('.pick-wrap');
+      var roleBox = wrap && wrap.querySelector('.pick-role');
+      if(roleBox) roleBox.hidden = !pkBox.checked;
+      return;
+    }
+    var rBtn = ev.target.closest('.rbtn');
+    if(rBtn){
+      var box = rBtn.closest('.pick-role');
+      [].slice.call(box.querySelectorAll('.rbtn')).forEach(function(b){ b.classList.remove('on'); });
+      rBtn.classList.add('on');
+      return;
+    }
+
+    if(ev.target.closest('#pick-save')){
+      var boxes = [].slice.call(book.querySelectorAll('.picker input[type=checkbox]:checked:not(:disabled)'));
+      var msg = document.getElementById('pick-msg');
+      if(!boxes.length){
+        if(msg){ msg.className='sg-note bad'; msg.textContent='Tick at least one programme first.'; }
+        return;
+      }
+      var noteEl = document.getElementById('pick-note');
+      var note = noteEl ? noteEl.value.trim() : '';
+      var btn = document.getElementById('pick-save');
+      btn.disabled = true;
+      if(msg){ msg.className='sg-note'; msg.textContent='Saving ' + boxes.length + '...'; }
+
+      var left = boxes.length, failed = 0;
+      boxes.forEach(function(box){
+        var dayId = box.getAttribute('data-day'), actId = box.getAttribute('data-act');
+        var day = S.days.filter(function(d){ return d.id===dayId; })[0];
+        var act = day && day.activities.filter(function(x){ return x.id===actId; })[0];
+        if(!act){ left--; return; }
+        var label = day.weekday + ' ' + day.dnum + ' Oct';
+        var wrap = box.closest('.pick-wrap');
+        var chosen = wrap && wrap.querySelector('.rbtn.on');
+        var role = chosen ? chosen.getAttribute('data-role') : defaultRole(act);
+        var detail = role + (note ? ' - ' + note : '');
+        if(!mine.some(function(e){ return e.day===dayId && e.act===actId; })){
+          mine.push({day:dayId, act:actId, actName:act.name, dayLabel:label,
+                     detail:detail, sent:false});
+        }
+        apiPost({action:'join', name:me.name, phone:me.phone, day:dayId, dayLabel:label,
+                 act:actId, actName:act.name, detail:detail}, function(ok){
+          if(ok){
+            mine.forEach(function(e){ if(e.day===dayId && e.act===actId) e.sent = true; });
+          } else { failed++; }
+          if(--left === 0){
+            saveMine();
+            fetchLive(function(){
+              mount(current);
+              var m2 = document.getElementById('pick-msg');
+              if(m2){
+                if(failed){ m2.className='sg-note bad';
+                  m2.textContent = failed + ' could not be saved - please try again.'; }
+                else { m2.className='sg-note ok';
+                  m2.textContent = 'Saved. You are on the list for ' + boxes.length + '.'; }
+              }
+              toast(failed ? 'Some choices did not save.' : 'Saved to the shared list.');
+            });
+          }
+        });
+      });
+      return;
+    }
+
     var regSave = ev.target.closest('#reg-save');
     if(regSave){
       var nEl = document.getElementById('reg-name'), pEl = document.getElementById('reg-phone');
       var nm = nEl.value.trim(), ph = pEl.value.trim();
       if(nm.length < 2){ nEl.focus(); toast('Please enter your name.'); return; }
       if(digits(ph).length < 7){ pEl.focus(); toast('Please enter a valid phone number.'); return; }
-      me.name = nm; me.phone = ph; saveMe(); editing = false; mount(current);
-      toast('Registered as ' + nm + '. You can now join any programme.');
-      apiPost({action:'register', name:nm, phone:ph}, function(ok){
+      var ad = Math.max(1, Math.min(30, stepValue('adults') || 1));
+      var ch = Math.max(0, Math.min(30, stepValue('children')));
+      me.name = nm; me.phone = ph; me.adults = ad; me.children = ch;
+      saveMe(); editing = false; mount(current);
+      toast('Registered as ' + nm + ', ' + partyText() + '.');
+      apiPost({action:'register', name:nm, phone:ph, adults:ad, children:ch,
+               total:ad + ch}, function(ok){
         if(ok) fetchLive(function(){ if(current === REG_PAGE - 1) mount(current); });
       });
       return;
@@ -1689,7 +2186,7 @@ h1,h2,h3{font-family:'Eczar',Georgia,serif; text-wrap:balance; margin:0}
       if(document.hidden) return;
       fetchLive(function(){
         if(current === 1 || current === REG_PAGE - 1 ||
-           (current >= 3 && current < 3 + S.days.length)){
+           PAGES[current].indexOf('day') === 0){
           var p = activePage();
           var sc = p ? p.querySelector('.sheet').scrollTop : 0;
           mount(current);
